@@ -1,9 +1,12 @@
-# Sentiment Analyzer Microservice
+# Sentiment Analyzer
 
 [![CI/CD Pipeline](https://github.com/shreyaupretyy/sentiment-analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/shreyaupretyy/sentiment-analyzer/actions/workflows/ci.yml)
 [![Documentation](https://img.shields.io/badge/docs-mkdocs-blue)](https://shreyaupretyy.github.io/sentiment-analyzer/)
 
-A FastAPI microservice that performs sentiment analysis on text using a rule-based approach. Built following 12-Factor App methodology.
+A FastAPI microservice that performs sentiment analysis on text using a rule-based approach.
+Built following the 12-Factor App methodology.
+
+[View Documentation](https://shreyaupretyy.github.io/sentiment-analyzer/)
 
 ## Features
 
