@@ -1,4 +1,5 @@
 import logging
+
 from fastapi import APIRouter, HTTPException
 
 from app.models.sentiment import SentimentRequest, SentimentResponse

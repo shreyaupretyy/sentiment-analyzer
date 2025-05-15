@@ -1,8 +1,8 @@
-import re
 import logging
+import re
 from typing import Tuple
-from app.models.sentiment import SentimentType
 
+from app.models.sentiment import SentimentType
 
 logger = logging.getLogger(__name__)
 
