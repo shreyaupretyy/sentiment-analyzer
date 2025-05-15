@@ -15,23 +15,23 @@ sentiment_analyzer = SentimentAnalyzer()
 async def analyze_sentiment(request: SentimentRequest):
     """
     Analyze the sentiment of the provided text.
-    
+
     Returns:
         SentimentResponse: The sentiment analysis result
     """
     try:
         logger.info(f"Analyzing sentiment for text of length {len(request.text)}")
-        
+
         # Perform sentiment analysis
         sentiment_type, confidence = sentiment_analyzer.analyze(request.text)
-        
+
         # Return the response
         return SentimentResponse(
             text=request.text,
             sentiment=sentiment_type,
             confidence=confidence
         )
-    
+
     except Exception as e:
         logger.error(f"Error analyzing sentiment: {str(e)}")
         raise HTTPException(

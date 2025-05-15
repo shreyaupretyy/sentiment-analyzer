@@ -38,10 +38,9 @@ async def health_check():
     """Health check endpoint for monitoring."""
     return {"status": "healthy"}
 
-
 if __name__ == "__main__":
     import uvicorn
-    
+
     uvicorn.run(
         "app.main:app",
         host=get_settings().host,
