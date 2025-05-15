@@ -17,21 +17,65 @@ class SentimentAnalyzer:
         Initialize with sentiment lexicons.
         """
         self.positive_words = {
-            'good', 'great', 'excellent', 'wonderful', 'amazing', 'fantastic',
-            'terrific', 'outstanding', 'superb', 'nice', 'brilliant',
-            'awesome', 'perfect', 'love', 'like', 'enjoy', 'happy'
+            "good",
+            "great",
+            "excellent",
+            "wonderful",
+            "amazing",
+            "fantastic",
+            "terrific",
+            "outstanding",
+            "superb",
+            "nice",
+            "brilliant",
+            "awesome",
+            "perfect",
+            "love",
+            "like",
+            "enjoy",
+            "happy",
         }
 
         self.negative_words = {
-            'bad', 'terrible', 'awful', 'horrible', 'dreadful', 'poor',
-            'disappointing', 'mediocre', 'sucks', 'hate', 'dislike', 'annoying',
-            'frustrating', 'unpleasant', 'worst', 'rubbish', 'trash'
+            "bad",
+            "terrible",
+            "awful",
+            "horrible",
+            "dreadful",
+            "poor",
+            "disappointing",
+            "mediocre",
+            "sucks",
+            "hate",
+            "dislike",
+            "annoying",
+            "frustrating",
+            "unpleasant",
+            "worst",
+            "rubbish",
+            "trash",
         }
 
         self.negation_words = {
-            'not', 'no', 'never', 'don\'t', 'doesn\'t', 'didn\'t', 'isn\'t',
-            'aren\'t', 'wasn\'t', 'weren\'t', 'haven\'t', 'hasn\'t', 'hadn\'t',
-            'won\'t', 'wouldn\'t', 'shouldn\'t', 'can\'t', 'couldn\'t', 'nothing'
+            "not",
+            "no",
+            "never",
+            "don't",
+            "doesn't",
+            "didn't",
+            "isn't",
+            "aren't",
+            "wasn't",
+            "weren't",
+            "haven't",
+            "hasn't",
+            "hadn't",
+            "won't",
+            "wouldn't",
+            "shouldn't",
+            "can't",
+            "couldn't",
+            "nothing",
         }
 
     def analyze(self, text: str) -> Tuple[SentimentType, float]:
@@ -49,7 +93,7 @@ class SentimentAnalyzer:
             return SentimentType.NEUTRAL, 0.5  # Updated to match test expectation for empty text
 
         # Normalize text: lowercase and remove punctuation
-        text = re.sub(r'[^\w\s]', ' ', text.lower())
+        text = re.sub(r"[^\w\s]", " ", text.lower())
         words = text.split()
 
         if not words:
@@ -97,7 +141,9 @@ class SentimentAnalyzer:
             confidence = max(0.6, min(0.95, 0.5 + raw_confidence))
         else:
             # If there's any negation and sentiment words, lean negative
-            if any(word in self.negation_words for word in words) and (positive_count > 0 or negative_count > 0):
+            if any(word in self.negation_words for word in words) and (
+                positive_count > 0 or negative_count > 0
+            ):
                 sentiment = SentimentType.NEGATIVE
                 confidence = 0.6  # Boosted confidence for negation cases
             else:

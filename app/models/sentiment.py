@@ -12,11 +12,7 @@ class SentimentRequest(BaseModel):
     text: str = Field(..., min_length=1, description="The text to analyze for sentiment")
 
     class Config:
-        schema_extra = {
-            "example": {
-                "text": "I love this amazing product!"
-            }
-        }
+        schema_extra = {"example": {"text": "I love this amazing product!"}}
 
 
 class SentimentResponse(BaseModel):
@@ -29,6 +25,6 @@ class SentimentResponse(BaseModel):
             "example": {
                 "text": "I love this amazing product!",
                 "sentiment": "positive",
-                "confidence": 0.85
+                "confidence": 0.85,
             }
         }

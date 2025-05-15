@@ -1,13 +1,9 @@
-
 class TestSentimentEndpoint:
     """Tests for the sentiment analysis API endpoint."""
 
     def test_analyze_positive(self, client):
         """Test analyzing positive text."""
-        response = client.post(
-            "/api/v1/analyze",
-            json={"text": "I love this amazing product!"}
-        )
+        response = client.post("/api/v1/analyze", json={"text": "I love this amazing product!"})
 
         assert response.status_code == 200
         data = response.json()
@@ -16,10 +12,7 @@ class TestSentimentEndpoint:
 
     def test_analyze_negative(self, client):
         """Test analyzing negative text."""
-        response = client.post(
-            "/api/v1/analyze",
-            json={"text": "This is terrible, I hate it."}
-        )
+        response = client.post("/api/v1/analyze", json={"text": "This is terrible, I hate it."})
 
         assert response.status_code == 200
         data = response.json()
@@ -28,10 +21,7 @@ class TestSentimentEndpoint:
 
     def test_analyze_neutral(self, client):
         """Test analyzing neutral text."""
-        response = client.post(
-            "/api/v1/analyze",
-            json={"text": "This is a regular statement."}
-        )
+        response = client.post("/api/v1/analyze", json={"text": "This is a regular statement."})
 
         assert response.status_code == 200
         data = response.json()
@@ -39,19 +29,13 @@ class TestSentimentEndpoint:
 
     def test_invalid_request(self, client):
         """Test sending an invalid request."""
-        response = client.post(
-            "/api/v1/analyze",
-            json={"invalid_field": "This should fail"}
-        )
+        response = client.post("/api/v1/analyze", json={"invalid_field": "This should fail"})
 
         assert response.status_code == 422  # Validation error
 
     def test_empty_text(self, client):
         """Test sending empty text."""
-        response = client.post(
-            "/api/v1/analyze",
-            json={"text": ""}
-        )
+        response = client.post("/api/v1/analyze", json={"text": ""})
 
         assert response.status_code == 422  # Validation error for min_length=1
 

@@ -26,15 +26,8 @@ async def analyze_sentiment(request: SentimentRequest):
         sentiment_type, confidence = sentiment_analyzer.analyze(request.text)
 
         # Return the response
-        return SentimentResponse(
-            text=request.text,
-            sentiment=sentiment_type,
-            confidence=confidence
-        )
+        return SentimentResponse(text=request.text, sentiment=sentiment_type, confidence=confidence)
 
     except Exception as e:
         logger.error(f"Error analyzing sentiment: {str(e)}")
-        raise HTTPException(
-            status_code=500,
-            detail="An error occurred during sentiment analysis"
-        )
+        raise HTTPException(status_code=500, detail="An error occurred during sentiment analysis")
