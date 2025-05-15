@@ -1,0 +1,38 @@
+# Git
+.git
+.gitignore
+.github/
+
+# Development/IDE
+.vscode/
+.idea/
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.coverage
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Documentation
+docs/
+mkdocs.yml
+
+# Tests
+tests/
+.pytest_cache/
+
+# Build artifacts
+*.egg-info/
+dist/
+build/
+
+# Other
+README.md
